@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// custom connection string (.env file)
+// eg.    DATABASE_URL="mysql://[use name]:[password]@[address]:[PORT]/[database name]"
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  name     String
+  password String
+  age      Int
+}
+
+// [npx prisma migrate dev] to apply new changes
