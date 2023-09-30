@@ -20,8 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <header className="py-6">
-            <nav className="container flex items-center justify-between">
+          <header className="w-full h-20 fixed top-0 left-0 bg-black z-101">
+            <nav className="container flex items-center justify-between h-full z-100">
               <ul>
                 <li>
                   <Link href="/">Home</Link>
@@ -29,7 +29,7 @@ export default function RootLayout({
               </ul>
             </nav>
           </header>
-          <main>{children}</main>
+          <main className="w-screen h-screen pt-20">{children}</main>
           <footer></footer>
         </Providers>
       </body>

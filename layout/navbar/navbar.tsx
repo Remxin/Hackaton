@@ -3,11 +3,9 @@ import Image from 'next/image'
 
 export default function Navbar() {
   return (
-    <nav className={styles.header}>
+    <nav className={`${styles.nav} h-full`}>
           <Image
       src="/assets/logo2.png"
-      width={200}
-      height={200}
       alt="logo"
     />
       <a href="/profile"className={styles.navText}>Profil</a>

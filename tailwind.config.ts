@@ -18,6 +18,18 @@ const config: Config = {
       colors: {
         primaryColor: "#afffaf",
       },
+      keyframes: {
+        wave: {
+          "0%, 100%": { opacity: "100", backgroundColor: "#ccc6"},
+          "50%": { opacity: "100", backgroundColor: "#ccc"},
+          // "100%": { opacity: "0", backgroundColor: "#ccc"}
+        }
+      },
+      animation: {
+        "waving-div": "wave 2s ease infinite",
+        "waving-div2": "wave 2s ease .5s infinite",
+        "waving-div3": "wave 2s ease 1s infinite"
+      }
     },
   },
   darkMode: "class",
