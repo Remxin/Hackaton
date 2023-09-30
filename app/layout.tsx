@@ -20,17 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <header className="w-full h-20 fixed top-0 left-0 bg-black z-101">
-            <nav className="container flex items-center justify-between h-full z-100">
-              <ul>
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <main className="w-screen h-screen pt-20">{children}</main>
-          <footer></footer>
+          {children}
+
         </Providers>
       </body>
     </html>

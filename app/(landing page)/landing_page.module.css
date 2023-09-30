@@ -1,0 +1,38 @@
+@value vars: '../vars.css';
+@value background-gradient, main-fontface, primary-color, secondary-color from vars;
+
+.wrapper {
+    /* background: background-gradient; */
+    color: black;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: white;
+}
+
+.header {
+    padding: 1rem;
+    display: flex;
+    background-color: white;
+    font-size: 2rem;
+    font-family: main-fontface;
+    box-shadow: 0 0 1rem black;
+}
+
+.main {
+    margin: 2rem;
+    font-family: Georgia;
+    text-align: center;
+    font-size: 5rem;
+    padding: 2rem;
+    height: 100%;
+    /* background-color: white; */
+    /* font-weight: bold; */
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+}
