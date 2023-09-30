@@ -3,6 +3,7 @@
 @value secondary-color: #67fa67;
 @value contrast-color: #ffb451;
 @value gray: #cfcfcf;
+@value groundColor: #eeeeee;
 @value background-gradient: linear-gradient(primary-color, secondary-color);
 @value main-fontface: Helvetica
 /* 
