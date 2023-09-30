@@ -1,0 +1,14 @@
+@import url('@/vars.css');
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.filters {
+    background-color: #afffaf;
+    background-color: #cfcfcf;
+    background-color: #ffb451;
+    height: 30%;
+    width: 100%;
+}
