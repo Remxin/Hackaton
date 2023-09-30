@@ -18,6 +18,53 @@ model User {
   email    String @unique
   name     String
   password String
+  opinions  StudyPathOpinion[]
+  maturaScore MaturaScore[]
 }
+
+model MaturaScore {
+  id          String @id @default(uuid())
+  subjectName String
+  percent     Int
+  userId      String
+  user  User  @relation(fields: [userId], references: [id])
+}
+
+model University {
+  id          String  @id @default(uuid())
+  name        String
+ 
+  departments Department[]
+}
+
+model Department {
+  id            String  @id @default(uuid())
+  name          String
+  description   String
+  universityId  String
+  university    University @relation(fields: [universityId], references: [id])
+  studyPaths    StudyPath[]
+}
+
+model StudyPath {
+  id            String  @id @default(uuid())
+  name          String
+  description   String
+  departmentId  String
+  department    Department @relation(fields: [departmentId], references: [id])
+  studyPathOpinions StudyPathOpinion[]
+}
+
+model StudyPathOpinion {
+  id          String  @id @default(uuid())
+  stars       Int
+  comment     String
+  userId      String
+  user        User @relation( fields: [userId], references: [id] )
+  studyPathId String
+  studyPath   StudyPath @relation(fields: [studyPathId], references: [id])
+}
+
+
 
 // [npx prisma migrate dev] to apply new changes
