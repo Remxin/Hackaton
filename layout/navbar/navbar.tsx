@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className={styles.header}>
       <Image
-        src="/assets/logo3.png"
+        src="/assets/logo4.png"
         width={200}
         height={200}
         alt="logo"
