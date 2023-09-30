@@ -1,0 +1,25 @@
+### GET
+GET http://localhost:3000/api/user/aa
+
+### POST
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "email": "test@gmail.com",
+    "password": "zaq1@WSX",
+    "age": 18
+}
+
+### POST
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "zaq1@WSX"
+}
+
+### DELETE 
+DELETE http://localhost:3000/api/user
