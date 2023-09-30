@@ -9,6 +9,7 @@ export default function Navbar() {
       alt="logo"
     />
       <a href="/profile"className={styles.navText}>Profil</a>
+    
       <text className={styles.navText}>PL/EN</text>
     </nav>
   )
