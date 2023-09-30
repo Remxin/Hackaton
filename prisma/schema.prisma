@@ -33,7 +33,6 @@ model MaturaScore {
 model University {
   id          String  @id @default(uuid())
   name        String
- 
   departments Department[]
 }
 
