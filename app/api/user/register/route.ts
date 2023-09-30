@@ -15,7 +15,6 @@ type registerBody = {
     name: string
     email: string
     password: string,
-    age: number
 }
 
 export async function POST(req: Request) {
@@ -28,13 +27,13 @@ export async function POST(req: Request) {
         res = { status: "failed", error: "Bad request body"}
         return NextResponse.json(res, { status: 400 })
     }
-    const { email, password, name, age } = body
+    const { email, password, name } = body
 
     try {
         const hashedPass = await hashHelpers.hashPass(password)
         if (hashedPass.status === "failed") throw new Error("Password hashing do not work")
 
-        const user = await prisma.user.create({ data: { email, password: hashedPass.data, name, age }})
+        const user = await prisma.user.create({ data: { email, password: hashedPass.data, name }})
         if (!user) {
             res = { status: "failed", error: "User not found"}
             return NextResponse.json(res, { status: 404 })
