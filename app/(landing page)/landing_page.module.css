@@ -1,5 +1,5 @@
 @value vars: '../vars.css';
-@value background-gradient, main-fontface, primary-color, secondary-color from vars;
+@value background-gradient, main-fontface, foreground-color, contrast-color, secondary-color from vars;
 
 .wrapper {
     /* background: background-gradient; */
@@ -7,7 +7,8 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-color: white;
+    /* background-color: white; */
+    /* background: linear-gradient(foreground-color, secondary-color); */
 }
 
 .header {
@@ -15,19 +16,29 @@
     display: flex;
     background-color: white;
     font-size: 2rem;
+    height: 5rem;
     font-family: main-fontface;
     box-shadow: 0 0 1rem black;
 }
 
 .main {
-    margin: 2rem;
     font-family: Georgia;
     text-align: center;
     font-size: 5rem;
-    padding: 2rem;
     height: 100%;
-    /* background-color: white; */
-    /* font-weight: bold; */
+    position: relative;
+    z-index: 1;
+}
+
+.background {
+    background-image: url('/assets/background/library.jpg');
+    background-size: cover;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    /* z-index: 2; */
 }
 
 .buttons {
@@ -35,4 +46,13 @@
     align-items: center;
     justify-content: center;
     height: 15rem;
+}
+
+.hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
 }

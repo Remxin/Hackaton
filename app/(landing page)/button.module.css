@@ -1,16 +1,17 @@
 @value vars: '../vars.css';
-@value background-gradient, main-fontface, primary-color, secondary-color from vars;
+@value background-gradient, main-fontface, contrast-color, secondary-color from vars;
 
 .button {
     width: 10rem;
     height: 4rem;
-    background-color: primary-color;
+    background-color: contrast-color;
     font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    margin: 2rem
+    margin: 2rem;
+    color: white
 }
 
 .button:hover {
