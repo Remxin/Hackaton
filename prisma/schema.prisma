@@ -34,6 +34,7 @@ model University {
   id          String  @id @default(uuid())
   name        String
   departments Department[]
+  studyPathOpinions StudyPathOpinion[]
 }
 
 model Department {
@@ -52,6 +53,8 @@ model StudyPath {
   departmentId  String
   department    Department @relation(fields: [departmentId], references: [id])
   studyPathOpinions StudyPathOpinion[]
+  categoryId String @default("")
+  category  Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }
 
 model StudyPathOpinion {
@@ -62,8 +65,15 @@ model StudyPathOpinion {
   user        User @relation( fields: [userId], references: [id] )
   studyPathId String
   studyPath   StudyPath @relation(fields: [studyPathId], references: [id])
+  universityId  String
+  university    University @relation(fields: [universityId], references: [id])
 }
 
+model Category {
+  id      String  @id @default(uuid())
+  name    String
+  StudyPath StudyPath[]
+}
 
 
 // [npx prisma migrate dev] to apply new changes
