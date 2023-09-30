@@ -7,7 +7,6 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 import { EyeFilledIcon } from "./EyeFilledIcon.js";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon.js";
-import { Button } from "@nextui-org/button";
 import { useUserContext } from "@/contexts/UserContext";
 
 export default function Login() {
@@ -38,14 +37,14 @@ export default function Login() {
             type="email"
             label="Email"
             placeholder="Enter your email"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({...p, email: e.target.value}))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({ ...p, email: e.target.value }))}
             color="primary"
           />
           <Input
             label="Password"
             variant="bordered"
             placeholder="Enter your password"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({...p, password: e.target.value}))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({ ...p, password: e.target.value }))}
             endContent={
               <button
                 className="focus:outline-none"
