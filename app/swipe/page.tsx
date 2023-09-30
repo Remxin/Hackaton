@@ -12,10 +12,18 @@ import StudyPathCard from './StudyPathCard'
 import { useStudyPath } from '@/hooks/useStudyPath'
 
 const SwipePage = () => {
-  const { data, loading, error } = useStudyPath()
+  const { data, loading, error, dispatch } = useStudyPath()
   const [isDragged, setIsDragged] = useState(false)
   const [dragPoint, setDragPoint] = useState<null | number>(null)
   const { x } = useMousePosition()
+
+  function acceptStudyPath(mouseXPos: number | null, dragAnchor: number | null) {
+    if (!mouseXPos || !dragAnchor) return
+    dispatch.getNext()
+    setIsDragged(false)
+    setDragPoint(null)
+      
+  }
 
   return (
     <div className='w-full h-full bg-green-300 flex items-center justify-center'>
@@ -33,10 +41,11 @@ const SwipePage = () => {
               setIsDragged(true)
               setDragPoint(x)
             }}
+         
             onDragEnd={() => {
-              setIsDragged(false)
-              setDragPoint(null)
+              acceptStudyPath(x, dragPoint)
             }}
+          
             >
               {/* @ts-ignore */}
                 <StudyPathCard loading={loading} error={error} data={data[0]}/>
