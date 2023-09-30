@@ -23,8 +23,14 @@ export default function Login() {
   return (
     <div className="grid h-screen place-items-center">
       <Card>
-        <CardHeader>Sign In</CardHeader>
+        <CardHeader>Sign Up</CardHeader>
         <CardBody>
+          <Input
+            className="mb-2"
+            label="Name"
+            placeholder="Enter your name"
+            color="primary"
+          />
           <Input
             className="mb-2"
             type="email"
@@ -53,7 +59,7 @@ export default function Login() {
             className="max-w-xs mb-2"
           />
           <Divider className="mb-2" />
-          <Button color="primary">Sign In</Button>
+          <Button color="primary">Register</Button>
         </CardBody>
       </Card>
     </div>
