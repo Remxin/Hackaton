@@ -9,7 +9,6 @@ Content-Type: application/json
     "name": "Test",
     "email": "test@gmail.com",
     "password": "zaq1@WSX",
-    "age": 18
 }
 
 ### POST
