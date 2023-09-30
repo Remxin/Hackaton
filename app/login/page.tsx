@@ -10,6 +10,14 @@ import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon.js";
 export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  const colors = [
+    "default",
+    "primary",
+    "secondary",
+    "success",
+    "warning",
+    "danger",
+  ];
 
   return (
     <div className="grid h-screen place-items-center">
@@ -21,6 +29,7 @@ export default function Login() {
             type="email"
             label="Email"
             placeholder="Enter your email"
+            color="primary"
           />
           <Input
             label="Password"
