@@ -7,6 +7,9 @@ import prisma from "@/lib/prisma";
 // hash
 import { hashHelpers } from "@/helpers/data/hashHelpers";
 
+// token
+import { signUserToken } from "@/helpers/data/token"
+
 // types
 import { httpresponseType } from "@/types/api";
 import { userClientType } from "@/types/dbModels";
@@ -17,7 +20,7 @@ type loginBody = {
 }
 
 export async function POST(req: Request) {
-    let res: httpresponseType<userClientType> = { status: "ok", data: { id: "", name: "", email: ""}}
+    let res: httpresponseType<userClientType & { token: string}> = { status: "ok", data: { id: "", name: "", email: "", token: ""}}
 
     const body: loginBody = await req.json()
 
@@ -29,7 +32,7 @@ export async function POST(req: Request) {
     const { email, password } = body
     try {
         const user = await prisma.user.findUnique({ where: { email }})
-        console.log(user)
+    
         if (!user) {
             res = { status: "failed", error: "User not found"}
             return NextResponse.json(res, { status: 404 })
@@ -40,8 +43,11 @@ export async function POST(req: Request) {
             res = { status: "failed", error: "Passwords do not match" }
             return NextResponse.json(res, { status: 403})
         }
+        console.log('jest')
+        const token = await signUserToken({ id: user.id },  "5d")
+        console.log(token)
         
-        res.data = { name: user.name, email: user.email, id: user.id}
+        res.data = { name: user.name, email: user.email, id: user.id, token }
         return NextResponse.json(res, { status: 200})
 
     } catch (err) {
