@@ -33,6 +33,10 @@ export const useStudyPath = () => {
         setLoading(false)
     }
 
+    useEffect(() => {
+        getStudyPaths()
+    }, [])
+
    
 
     return {
