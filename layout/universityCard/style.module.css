@@ -1,0 +1,19 @@
+.card {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    overflow:hidden;
+}
+
+.cardFade {
+    width: 100%;
+    height: 100%;
+    mask-mode: alpha;
+    background-image: linear-gradient(white, gray);
+}
+
+.cardText {
+    font-size: 100px;
+    color: black;
+        
+}
