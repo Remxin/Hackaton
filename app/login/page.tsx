@@ -6,35 +6,19 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 import { EyeFilledIcon } from "./EyeFilledIcon.js";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon.js";
+import { useUserContext } from "@/contexts/UserContext";
 
 export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
+  const [userData, setUserData] = useState({
+    email: "",
+    password: ""
+  })
+  const { dispatch } = useUserContext()
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
     <div className="grid h-screen place-items-center">
-      {/* <Card className="max-w-[400px]">
-        <CardHeader className="flex gap-3">
-          <div className="flex flex-col">
-            <p className="text-md">NextUI</p>
-            <p className="text-small text-default-500">nextui.org</p>
-          </div>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <p>Make beautiful websites regardless of your design experience.</p>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <Link
-            isExternal
-            showAnchorIcon
-            href="https://github.com/nextui-org/nextui"
-          >
-            Visit source code on GitHub.
-          </Link>
-        </CardFooter>
-      </Card> */}
       <Card>
         <CardHeader>Sign In</CardHeader>
         <CardBody>
@@ -43,11 +27,13 @@ export default function Login() {
             type="email"
             label="Email"
             placeholder="Enter your email"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({...p, email: e.target.value}))}
           />
           <Input
             label="Password"
             variant="bordered"
             placeholder="Enter your password"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({...p, password: e.target.value}))}
             endContent={
               <button
                 className="focus:outline-none"
@@ -64,6 +50,9 @@ export default function Login() {
             type={isVisible ? "text" : "password"}
             className="max-w-xs"
           />
+          <Button onClick={() => dispatch.login(userData.email, userData.password)}>
+            Login
+          </Button>
         </CardBody>
         <Divider />
       </Card>

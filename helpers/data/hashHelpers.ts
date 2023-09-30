@@ -17,6 +17,7 @@ export const hashHelpers = {
         return new Promise<hashResponseType<string>>(async (resolve, reject) => {
             try {
                 const hashed = await bcrypt.hash(password, 12)
+           
                 resolve({ status: "ok", data: hashed})
 
             } catch (err) {
@@ -30,6 +31,7 @@ export const hashHelpers = {
         return new Promise<hashResponseType<boolean>>(async (resolve, reject) => {
             try {
                 const match = await bcrypt.compare(typedPass, password)
+                if (!match) return resolve({ status: "failed", error: "Passwords do not match"})
                 resolve({ status: "ok", data: match })
             } catch (err) {
                 reject({ status: "failed", error: "function error" })
