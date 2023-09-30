@@ -22,7 +22,6 @@ export async function POST(req: Request) {
     const body: loginBody = await req.json()
 
 
-    console.log(body)
     if (!body.email || !body.password) {
         res = { status: "failed", error: "Bad request body"}
         return NextResponse.json(res, { status: 400 })
