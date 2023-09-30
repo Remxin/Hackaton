@@ -1,4 +1,6 @@
-@import url('@/vars.css');
+@value vars: '../vars.css';
+@value primary-color, background-gradient from vars;
+
 
 .wrapper {
     height: 100%;
@@ -6,9 +8,5 @@
 }
 
 .filters {
-    background-color: #afffaf;
-    background-color: #cfcfcf;
-    background-color: #ffb451;
-    height: 30%;
-    width: 100%;
+    height: 30rem;
 }
