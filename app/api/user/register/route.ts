@@ -7,6 +7,7 @@ import prisma from "@/lib/prisma";
 // hash
 import { hashHelpers } from "@/helpers/data/hashHelpers";
 
+
 // types
 import { httpresponseType } from "@/types/api";
 import { userClientType, userDBType } from "@/types/dbModels";
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
             res = { status: "failed", error: "User not found"}
             return NextResponse.json(res, { status: 404 })
         }
+
         
         res.data = { name: user.name, email: user.email, id: user.id}
         return NextResponse.json(res, { status: 200})
