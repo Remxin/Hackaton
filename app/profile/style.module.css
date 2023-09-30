@@ -1,0 +1,68 @@
+@value vars: '../vars.css';
+@value primary-color, background-gradient, groundColor, gray from vars;
+
+/* .nickHeader {
+    background-color: primary-color;
+}  */
+.basicResultsBackground {
+    background-color: primary-color;
+    border-radius: 5px;
+    margin: auto;
+    width: max-content;
+    padding: 10px;
+    border: 0;
+    margin-top: 20px;
+}
+.textInput:focus {
+    outline: none;
+    width: 265px;
+    margin-right: 10px;
+    opacity: 1;
+}
+.textInput:hover {
+    opacity: 1;
+    width: 275px;
+    margin-right: 0px;
+}
+.textInput {
+    width: 250px;
+    transition: 200ms;
+    opacity: 0.8;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 25px;
+}
+.background {
+    background-color: white;
+    min-width: 100vh;
+} 
+.title{
+    text-align: center;
+
+}
+.numInput {
+    width: 40px;
+    transition: 200ms;
+    opacity: 0.8;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.numInput:focus {
+    outline: none;
+    opacity: 1;
+}
+.numInput:hover {
+    opacity: 1;
+}
+.select {
+    width: 200px;
+    transition: 200ms;
+    opacity: 0.8;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 25px;
+}
