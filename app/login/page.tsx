@@ -13,28 +13,6 @@ export default function Login() {
 
   return (
     <div className="grid h-screen place-items-center">
-      {/* <Card className="max-w-[400px]">
-        <CardHeader className="flex gap-3">
-          <div className="flex flex-col">
-            <p className="text-md">NextUI</p>
-            <p className="text-small text-default-500">nextui.org</p>
-          </div>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <p>Make beautiful websites regardless of your design experience.</p>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <Link
-            isExternal
-            showAnchorIcon
-            href="https://github.com/nextui-org/nextui"
-          >
-            Visit source code on GitHub.
-          </Link>
-        </CardFooter>
-      </Card> */}
       <Card>
         <CardHeader>Sign In</CardHeader>
         <CardBody>
@@ -67,29 +45,6 @@ export default function Login() {
         </CardBody>
         <Divider />
       </Card>
-
-      {/* <Card className="max-w-[400px]">
-        <CardHeader>
-          NextUI <Login></Login>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <p>Make beautiful websites regardless of your design experience.</p>
-          <Input type="email" label="Email" placeholder="Enter your email" />
-          <Spacer y={1} />
-          <Input
-            type="password"
-            label="Password"
-            placeholder="Enter your password"
-          />
-          <Checkbox>Remember me</Checkbox>
-          Forgot password?
-          <Spacer y={1} />
-        </CardBody>
-        <CardFooter>
-          <Button color="primary">Sign in</Button>
-        </CardFooter>
-      </Card> */}
     </div>
   );
 }
