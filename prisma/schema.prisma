@@ -6,7 +6,7 @@ generator client {
 }
 
 // custom connection string (.env file)
-// eg.    DATABASE_URL="mysql://[use name]:[password]@[address]:[PORT]/[database name]"
+// eg.    DATABASE_URL="mysql://[user name]:[password]@[address]:[PORT]/[database name]"
 
 datasource db {
   provider = "mysql"
