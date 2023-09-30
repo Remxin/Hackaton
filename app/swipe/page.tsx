@@ -12,11 +12,11 @@ import StudyPathCard from './StudyPathCard'
 import { useStudyPath } from '@/hooks/useStudyPath'
 
 const SwipePage = () => {
-  const { loading, error } = useStudyPath()
+  const { data, loading, error } = useStudyPath()
   const [isDragged, setIsDragged] = useState(false)
   const [dragPoint, setDragPoint] = useState<null | number>(null)
   const { x } = useMousePosition()
-  
+
   return (
     <div className='w-full h-full bg-green-300 flex items-center justify-center'>
         <div className='h-[95%] w-[600px] bg-gray-200 flex items-center just-center p-0 pl-5 pr-5 rounded-md'>
@@ -38,7 +38,8 @@ const SwipePage = () => {
               setDragPoint(null)
             }}
             >
-                <StudyPathCard loading={loading} error={error}/>
+              {/* @ts-ignore */}
+                <StudyPathCard loading={loading} error={error} data={data[0]}/>
             </motion.div>
         </div>
 
@@ -46,7 +47,7 @@ const SwipePage = () => {
           {/* @ts-ignore */}
           <div className={`fixed w-[50%] h-screen bg-red-200 ${dragPoint > x ? "" : "opacity-30"} left-0 border flex justify-center items-center font-bold text-[50px] transition-opacity`}>
           {/* @ts-ignore */}
-            {dragPoint > x ? <p>I don't like it 👎</p> : null}
+            {dragPoint > x ? <p className='opacity-100'>I don't like it 👎</p> : null}
           </div>
           {/* @ts-ignore */}
           <div className={`fixed w-[50%] h-screen bg-green-200 ${dragPoint < x ? "" : "opacity-30"} right-0 flex justify-center items-center font-bold text-[50px] transition-opacity`}>
