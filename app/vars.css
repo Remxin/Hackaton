@@ -1,0 +1,17 @@
+@value foreground-color: white;
+@value primary-color: #afffaf;
+@value secondary-color: #67fa67;
+@value contrast-color: #ffb451;
+@value gray: #cfcfcf;
+@value background-gradient: linear-gradient(primary-color, secondary-color);
+@value main-fontface: Helvetica
+/* 
+to import variables in any css module file:
+@value [var name]: 'path/to/this/file';
+@value primary-color, secondary-color from [var name]
+
+usage:
+div {
+    background-color: primary-color
+}
+*/
