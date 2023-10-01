@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div>
+          <div className="w-screen h-screen">
             <header className='p-4 bg-white opacity-100 text-3xl h-20 sticky top-0'>
               <Link href={'/'} className="flex flex-row items-center w-fit">
                 <Image src={'/assets/logo4.png'} alt='logo' width={60} height={80}></Image>
