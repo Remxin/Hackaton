@@ -5,6 +5,7 @@ import styles from './userInfo.module.css'
 import Profile from '@/components/matura/profile'
 import useFetch from '../hooks/useFetch'
 import { useRouter } from 'next/navigation'
+import { useCookies } from 'react-cookie'
 
 export default function UserInfo() {
 
@@ -15,20 +16,20 @@ export default function UserInfo() {
     const router = useRouter()
 
     const getCookieValue = (value: string) => {
-        let cookies = document.cookie.split(';')
-        for (let cookie of cookies) {
-            if (cookie.split('=')[0] === value) {
-                let value = cookie.split('=')[1]
-                if (value === '') return
-                value = value.replace('3%40', '@')
-                try {
-                    value = JSON.parse(value)
-                    return value
-                } catch (error) {
-                    return value
-                }
-            }
-        }
+        // let cookies =useCookies()
+        // for (let cookie of cookies) {
+        //     if (cookie.split('=')[0] === value) {
+        //         let value = cookie.split('=')[1]
+        //         if (value === '') return
+        //         value = value.replace('3%40', '@')
+        //         try {
+        //             value = JSON.parse(value)
+        //             return value
+        //         } catch (error) {
+        //             return value
+        //         }
+        //     }
+        // }
     }
 
     console.log(userData);
@@ -63,7 +64,7 @@ export default function UserInfo() {
         let data = getCookieValue('universities')
         if (data === undefined) return
         if (!Array.isArray(data)) return
-        data.push(university_name)
+        // data.push(university_name)
         const expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 2);
         const expires = expirationDate.toUTCString();

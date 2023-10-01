@@ -27,7 +27,7 @@ export default function RootLayout({
           <div>
             <header className='p-4 bg-white opacity-100 text-3xl h-20 fixed top-0 w-full z-[1000]'>
 
-              <Link href={'/'} className="flex flex-row items-center w-fit">
+              <Link href={'/matches'} className="flex flex-row items-center w-fit">
                 <Image src={'/assets/logo4.png'} alt='logo' width={60} height={80}></Image>
                 <h1>Studier</h1>
               </Link>
