@@ -32,7 +32,7 @@ export const PathReview = ({ pickedUniversity }: componentProps) => {
   const ratingChanged = (newRating: any) => {
     setStars(newRating);
   };
-
+  //@ts-ignore
   const handleReviewEndpoint = (universityId, studyPathId) => {
     const objToSend = {
       userId: "87e36282-d56d-4dfb-b96c-2767c76a2766",

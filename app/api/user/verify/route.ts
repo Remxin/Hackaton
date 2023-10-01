@@ -1,5 +1,5 @@
 // server
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // prisma
 import prisma from "@/lib/prisma";
@@ -21,13 +21,13 @@ type loginBody = {
   password: string;
 };
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: NextRequest) {
   let res: httpresponseType<userClientType> = {
     status: "ok",
     data: { id: "", name: "", email: "" },
   };
 
-  
+
   try {
     const cookie = getCookieValue(req, "user_token")
     const token = verifyUserToken(cookie) as userTokenType
