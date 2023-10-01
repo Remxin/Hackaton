@@ -33,6 +33,12 @@ export const useStudyPath = () => {
         setLoading(false)
     }
 
+    async function getNext() {
+        data.shift()
+
+        if (data.length < 3) getStudyPaths()
+    }
+
     useEffect(() => {
         getStudyPaths()
     }, [])
@@ -44,7 +50,8 @@ export const useStudyPath = () => {
         loading,
         error,
         dispatch: {
-            getStudyPaths
+            getStudyPaths,
+            getNext
         }
     }
 }
