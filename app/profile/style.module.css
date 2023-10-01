@@ -4,6 +4,11 @@
 /* .nickHeader {
     background-color: primary-color;
 }  */
+.background{
+    background-color: #ffffff;
+    min-height: calc(100vh - 120px);
+    padding-bottom: 20px;
+}
 .basicResultsBackground {
     background-color: primary-color;
     border-radius: 5px;
@@ -12,6 +17,7 @@
     padding: 10px;
     border: 0;
     margin-top: 20px;
+    width: 550px;
 }
 .textInput:focus {
     outline: none;
@@ -33,10 +39,6 @@
     border-radius: 5px;
     margin: 5px 25px;
 }
-.background {
-    background-color: white;
-    min-width: 100vh;
-} 
 .title{
     text-align: center;
 
@@ -49,6 +51,7 @@
     padding: 5px;
     border-radius: 5px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 .numInput:focus {
     outline: none;
@@ -59,6 +62,22 @@
 }
 .select {
     width: 200px;
+    transition: 200ms;
+    opacity: 0.8;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 25px;
+}
+.submit {
+    padding: 10px;
+    width: 100vw;
+    text-align: center;
+    transition: 250px;
+    background-color: primary-color;
+}
+.numberLongerInput{
+    width: 140px;
     transition: 200ms;
     opacity: 0.8;
     background-color: white;
