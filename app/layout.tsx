@@ -1,8 +1,10 @@
+
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Providers from "./providers";
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,21 +18,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <header className="w-full h-20 fixed top-0 left-0 bg-black z-101">
-            <nav className="container flex items-center justify-between h-full z-100">
-              <ul>
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <main className="w-screen h-screen pt-20">{children}</main>
-          <footer></footer>
+          <div>
+            <header className='p-4 bg-white opacity-100 text-3xl h-20 sticky top-0'>
+              <Link href={'/'} className="flex flex-row items-center w-fit">
+                <Image src={'/assets/logo4.png'} alt='logo' width={60} height={80}></Image>
+                <h1>Studier</h1>
+              </Link>
+            </header>
+            <main className="w-screen h-full">{children}</main>
+          </div>
         </Providers>
       </body>
     </html>

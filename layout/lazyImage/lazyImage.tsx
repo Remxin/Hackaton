@@ -1,7 +1,7 @@
 import styles from "./style.module.css"
 import Image from 'next/image'
 
-function LazyImage({ uuid }: { uuid: string }) {
+function LazyImage({ uuid, width, height }: { uuid: string, height: number, width: number }) {
 
 
 

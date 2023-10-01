@@ -1,0 +1,40 @@
+@value vars: '../vars.css';
+@value background-gradient, main-fontface, foreground-color, contrast-color, secondary-color, primary-color from vars;
+
+.match {
+    display: flex;
+    /* width: 35rem; */
+    width: 90%;
+    margin: 1rem;
+    background-color: foreground-color;
+    border-radius: 10px;
+}
+
+.match:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.container {
+    width: 50%;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0.5rem;
+    border-radius: 10px;
+}
+
+.header {
+    font-size: 1.5rem;
+}
+
+.button {
+    color: secondary-color;
+    text-decoration: underline;
+}
+
+.button:hover {
+    color: primary-color;
+}
