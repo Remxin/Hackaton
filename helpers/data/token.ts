@@ -6,6 +6,12 @@ type signToken = {
     id: string
 } 
 
+export type userTokenType = {
+    id: string
+    iat: number
+    exp: number
+}
+
 export function signUserToken(payload: signToken, expiresIn: string) {
     if (!TOKEN_SECRET) throw new Error("Token secret undefined")
    
@@ -14,9 +20,9 @@ export function signUserToken(payload: signToken, expiresIn: string) {
     return token
 }
 
-export function verifyUserToken(token: signToken) {
+export function verifyUserToken(token: string) {
     if (!TOKEN_SECRET) throw new Error("Token secret undefined")
 
-    const valid = jwt.verify(token.id, TOKEN_SECRET)
+    const valid = jwt.verify(token, TOKEN_SECRET)
     return valid
 }

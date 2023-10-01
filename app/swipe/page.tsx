@@ -11,21 +11,27 @@ import StudyPathCard from './StudyPathCard'
 // hook
 import { useStudyPath } from '@/hooks/useStudyPath'
 
+// router
+import { redirect } from 'next/navigation'
 
 // preferences
 import UserPreferences from '@/utilities/userPreferences'
 const userPreferences = new UserPreferences()
 
-const SwipePage = () => {
+
+export default function SwipePage() {
+
   const { data, loading, error, dispatch } = useStudyPath()
   const [isDragged, setIsDragged] = useState(false)
   const [dragPoint, setDragPoint] = useState<null | number>(null)
   const { x } = useMousePosition()
+
+  if (error === "User not authenticated") return redirect("/")
   
 
   function acceptStudyPath(mouseXPos: number | null, dragAnchor: number | null) {
     if (!mouseXPos || !dragAnchor) return
-
+    
     // getting next study path
     dispatch.getNext()
     setIsDragged(false)
@@ -77,4 +83,3 @@ const SwipePage = () => {
   )
 }
 
-export default SwipePage
