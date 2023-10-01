@@ -10,54 +10,28 @@ import { useUserContext } from "@/contexts/UserContext";
 import { appConstants } from "@/constants/app";
 import { httpresponseType } from "@/types/api";
 import { userClientType } from "@/types/dbModels";
-import { useRouter } from "next/navigation";
+
+// redirect
+import { redirect } from 'next/navigation'
 
 export default function Login() {
+  const { user, dispatch } = useUserContext()
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
-  const colors = [
-    "default",
-    "primary",
-    "secondary",
-    "success",
-    "warning",
-    "danger",
-  ];
-  const router = useRouter();
+
+
 
   const [userData, setUserData] = useState({
     email: "",
     password: "",
     name: "",
   });
-  const [userName, setUserName] = useState("");
-
-  const sendRegisterToBackend = async (email: string, password: string) => {
-    console.log("rejestracja");
-    try {
-      const res = await fetch(`${appConstants.appIP}/api/user/register`, {
-        method: "POST",
-        body: JSON.stringify({ email, password, userName }),
-      });
-
-      const resData: httpresponseType<userClientType & { token: string }> =
-        await res.json();
-      if (resData.status === "failed") {
-        const error = resData.error;
-        return;
-      }
-      const { name, id } = resData.data;
-      console.log(resData.data);
-    } catch (err) {
-      console.log(err);
-      return;
-    }
-  };
+ 
   const registerUser = async () => {
-    console.log("register user");
-    sendRegisterToBackend(userData.email, userData.password);
-    router.push("/login");
+    dispatch.register(userData.email, userData.name, userData.password)
   };
+
+  if (user.id) return redirect("/swipe")
 
   return (
     <div className="grid h-screen place-items-center">
@@ -70,7 +44,7 @@ export default function Login() {
             placeholder="Enter your name"
             color="primary"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setUserName(e.target.value)
+              setUserData((p) => ({ ...p, name: e.target.value }))
             }
           />
           <Input

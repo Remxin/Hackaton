@@ -32,7 +32,6 @@ export async function POST(req: Request) {
     return NextResponse.json(res, { status: 400 });
   }
   const { email, password } = body;
-  console.log(email, password);
   try {
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
@@ -49,10 +48,7 @@ export async function POST(req: Request) {
       res = { status: "failed", error: "Passwords do not match" };
       return NextResponse.json(res, { status: 403 });
     }
-    console.log("jest");
     const token = await signUserToken({ id: user.id }, "5d");
-    console.log(token);
-
     res.data = { name: user.name, email: user.email, id: user.id, token };
     return NextResponse.json(res, { status: 200 });
   } catch (err) {

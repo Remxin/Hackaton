@@ -20,6 +20,7 @@ type ContextType = {
   errors: string[];
   dispatch: {
     login: (email: string, password: string) => Promise<void>;
+    register: (email: string, userName: string, password: string) => Promise<void>;
   };
 } | null;
 
@@ -73,7 +74,32 @@ export default function UserContextProvider({ children }: ProviderProps) {
     }
   }
 
-  async function verify() {
+  async function register(email: string, userName: string, password: string) {
+    setLoading(true)
+    try {
+      const res = await fetch(`${appConstants.appIP}/api/user/register`, {
+        method: "POST",
+        body: JSON.stringify({ email, password, userName }),
+      });
+
+      const resData: httpresponseType<userClientType & { token: string }> = await res.json();
+      if (resData.status === "failed") {
+        setErrors((e) => [...e, resData.error]);
+        setLoading(false)
+        return;
+      }
+      
+      const { id, name } = resData.data
+
+      setUserData({ name, email, id })
+   
+    } catch (err) {
+  
+      return;
+    }
+  }
+
+  async function verify(setErr: boolean = true) {
     setLoading(true)
     try {
       const res = await fetch(`${appConstants.appIP}/api/user/verify`, {
@@ -81,15 +107,34 @@ export default function UserContextProvider({ children }: ProviderProps) {
         credentials: "include"
       })
 
-      const resData = await res.json()
+      const resData = await res.json() as httpresponseType<userClientType>
 
-    } catch (err) {
-      console.log(err)
-      setErrors((e) => [...e, "Application error"]);
+      if (resData.status === "failed") {
+        if (setErr) {
+          setErrors((e) => [...e, resData.error]);
+        }
+        return
+      }
+      // console.log(resData)
+      setUserData(resData.data)
       setLoading(false)
+    } catch (err) {
+      if (setErr) {
+        setErrors((e) => [...e, "Application error"]);
+        setLoading(false)
+      }
     }
   }
 
+
+  useEffect(() => {
+    switch (pathname) {
+      case "/login":
+      case "/register":
+        verify(false)
+        break
+    }
+  }, [pathname])
 
 
   return (
@@ -100,6 +145,7 @@ export default function UserContextProvider({ children }: ProviderProps) {
         errors,
         dispatch: {
           login,
+          register
         },
       }}
     >
