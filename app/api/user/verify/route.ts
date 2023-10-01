@@ -8,7 +8,7 @@ import prisma from "@/lib/prisma";
 import { hashHelpers } from "@/helpers/data/hashHelpers";
 
 // token
-import { signUserToken, verifyUserToken } from "@/helpers/data/token";
+import { signUserToken, verifyUserToken, userTokenType } from "@/helpers/data/token";
 import { getCookieValue } from "@/helpers/data/cookies";
 
 // types
@@ -21,34 +21,29 @@ type loginBody = {
   password: string;
 };
 
-export async function POST(req: any) {
-  let res: httpresponseType<userClientType & { token: string }> = {
+export async function POST(req: NextApiRequest) {
+  let res: httpresponseType<userClientType> = {
     status: "ok",
-    data: { id: "", name: "", email: "", token: "" },
+    data: { id: "", name: "", email: "" },
   };
 
-  const cookie = getCookieValue(req, "user_token")
-  const token = verifyUserToken(cookie)
-  console.log(token)
+  
+  try {
+    const cookie = getCookieValue(req, "user_token")
+    const token = verifyUserToken(cookie) as userTokenType
 
-  return NextResponse.json({ message: "ok" }, { status: 200 })
-  // 
-  // try {
-  //   const user = await prisma.user.findUnique({ where: { email } });
-  //   if (!user) {
-  //     res = { status: "failed", error: "User not found" };
-  //     return NextResponse.json(res, { status: 404 });
-  //   }
+    const user = await prisma.user.findUnique({ where: { id: token.id } });
+    if (!user) {
+      res = { status: "failed", error: "User not found" };
+      return NextResponse.json(res, { status: 404 });
+    }
 
-  //   console.log("jest");
-  //   const token = await signUserToken({ id: user.id }, "5d");
-  //   console.log(token);
 
-  //   res.data = { name: user.name, email: user.email, id: user.id, token };
-  //   return NextResponse.json(res, { status: 200 });
-  // } catch (err) {
-  //   res = { status: "failed", error: "Internal server error" };
-  //   console.log(err);
-  //   return NextResponse.json(res, { status: 500 });
-  // }
+    res.data = { name: user.name, email: user.email, id: user.id };
+    return NextResponse.json(res, { status: 200 });
+  } catch (err) {
+    res = { status: "failed", error: "Internal server error" };
+    console.log(err);
+    return NextResponse.json(res, { status: 500 });
+  }
 }

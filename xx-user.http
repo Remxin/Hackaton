@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "userName": "Test",
-    "email": "test6@gmail.com",
+    "email": "test@gmail.com",
     "password": "zaq1@WSX"
 
 }
@@ -17,7 +17,7 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "tes4@gmail.com",
+    "email": "test@gmail.com",
     "password": "zaq1@WSX"
 }
 

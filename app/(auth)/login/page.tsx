@@ -1,14 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Checkbox, Spacer, Button, Link } from "@nextui-org/react";
 
+
+// componenents
+import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
+
+// icons
 import { EyeFilledIcon } from "./EyeFilledIcon.js";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon.js";
+
+// user context
 import { useUserContext } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation.js";
+
+// redirect
+import { redirect } from 'next/navigation'
 
 export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,6 +43,8 @@ export default function Login() {
     "warning",
     "danger",
   ];
+  
+  if (user.id) return redirect("/swipe")
 
 
   return (
