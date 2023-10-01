@@ -1,8 +1,8 @@
-.user_info_container {
-    background-color: white;
+.user_info_wrapper {
     border-radius: 10px;
-    height: 60vh;
-    width: 100%;
+    height: 10rem;
+    width: 10rem;
+    background-color: aqua;
 }
 
 .user_info_whole_view {
@@ -12,4 +12,5 @@
 
 .header {
     font-size: 1.5rem;
+    margin: 1rem;
 }
