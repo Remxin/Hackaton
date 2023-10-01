@@ -40,6 +40,8 @@ export type studyPathDBType = {
     departmentId: string
     department?: departmentDBType
     studyPathOpinions?: studyPathOpinionDBType[]
+    categoryId: string
+    category?: categoryDBType
 }
 
 export type studyPathOpinionDBType = {
@@ -50,4 +52,10 @@ export type studyPathOpinionDBType = {
     user?: userDBType
     studyPathId: string
     studyPath?: studyPathDBType
+}
+
+export type categoryDBType = {
+    id: string
+    name: string
+    studyPath: studyPathDBType[]
 }

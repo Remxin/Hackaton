@@ -9,6 +9,8 @@ export default class UserPreferences {
 
         this.subject = {
             information_technology: UserPreferences.default_value,
+            chemistry: UserPreferences.default_value,
+            biology: UserPreferences.default_value,
             art: UserPreferences.default_value,
             economy: UserPreferences.default_value,
         }
