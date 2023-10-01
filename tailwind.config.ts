@@ -40,8 +40,8 @@ const config: Config = {
         light: {
           // ...
           colors: {
-            primary: "#afffaf",
-            DEFAULT: "#afffaf",
+            primary: "#000000",
+            DEFAULT: "#FFFFFF",
             foreground: "#000",
             secondary: "#67fa67",
             background: "#fff",
