@@ -17,6 +17,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.3",
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "framer-motion": "^10.16.4",
     "jsonwebtoken": "^9.0.2",
     "lottie-react": "^2.4.0",

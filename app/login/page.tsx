@@ -13,9 +13,9 @@ export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
-    password: ""
-  })
-  const { dispatch } = useUserContext()
+    password: "",
+  });
+  const { dispatch } = useUserContext();
   const toggleVisibility = () => setIsVisible(!isVisible);
   const colors = [
     "default",
@@ -26,25 +26,28 @@ export default function Login() {
     "danger",
   ];
 
-
   return (
     <div className="grid h-screen place-items-center">
       <Card>
         <CardHeader>Sign In</CardHeader>
         <CardBody>
           <Input
-            className="mb-2"
+            className="mb-4"
             type="email"
             label="Email"
             placeholder="Enter your email"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({ ...p, email: e.target.value }))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUserData((p) => ({ ...p, email: e.target.value }))
+            }
             color="primary"
           />
           <Input
             label="Password"
             variant="bordered"
             placeholder="Enter your password"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserData(p => ({ ...p, password: e.target.value }))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUserData((p) => ({ ...p, password: e.target.value }))
+            }
             endContent={
               <button
                 className="focus:outline-none"
@@ -59,16 +62,16 @@ export default function Login() {
               </button>
             }
             type={isVisible ? "text" : "password"}
-
-            className="max-w-xs"
+            className="max-w-xs mb-4"
           />
-          <Button onClick={() => dispatch.login(userData.email, userData.password)}>
+          <Button
+            onClick={() => dispatch.login(userData.email, userData.password)}
+          >
             Login
           </Button>
         </CardBody>
         <Divider />
       </Card>
-
     </div>
   );
 }
