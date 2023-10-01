@@ -32,7 +32,7 @@ export async function GET(req: NextApiRequest) {
             return NextResponse.json(res, { status: 403})
         }
         // TODO: recommendation ALGORITHM
-        const paths = await prisma.studyPath.findMany({ take: 20, include: { department: { include: { university: { select: { name: true, id: true}}} }}} )
+        const paths = await prisma.studyPath.findMany({ include: { department: { include: { university: { select: { name: true, id: true}}} }}} )
         res.data = paths
 
         return NextResponse.json(res, { status: 200 })

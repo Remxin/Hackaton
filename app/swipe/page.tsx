@@ -40,7 +40,7 @@ export default function SwipePage() {
   }
 
   return (
-    <div className='w-full h-full bg-green-300 flex items-center justify-center'>
+    <div className='w-full h-full bg-gray-300 flex items-center justify-center'>
         <div className='h-[95%] w-[600px] bg-gray-200 flex items-center just-center p-0 pl-5 pr-5 rounded-md'>
             <motion.div
             className={`w-full h-[95%] bg-white relative z-10 rounded-md ${isDragged ? "opacity-80" : ""}`}
