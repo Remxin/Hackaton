@@ -1,16 +1,42 @@
-.user_info_wrapper {
-    border-radius: 10px;
-    height: 10rem;
-    width: 10rem;
-    background-color: aqua;
+.user_info_whole_view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.user_info_whole_view {
+.user_info {
     width: 55vw;
-    height: 70vw;
+    height: 75vh;
+    background-color: white;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem
 }
 
 .header {
     font-size: 1.5rem;
     margin: 1rem;
+    text-align: center;
+}
+
+.button {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin-top: 1rem
+}
+
+.button:hover {
+    background-color: beige;
+}
+
+.input {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
 }
