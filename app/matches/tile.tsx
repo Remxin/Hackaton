@@ -1,5 +1,5 @@
 import styles from './tile.module.css'
-import LazyImage from '@/layout/lazyImage/lazyImage'
+import LazyImage from '@/components/lazyImage/LazyImage'
 import Image from 'next/image'
 
 export default function Tile({ id }: { id: string }) {
