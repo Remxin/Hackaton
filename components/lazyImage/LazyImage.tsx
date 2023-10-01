@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 type componentProps = {
     uuid: string
-    divClass: string
+    divClass?: string
     imageClass?: string,
     width: number
     height: number
