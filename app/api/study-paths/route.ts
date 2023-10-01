@@ -18,7 +18,6 @@ export async function GET(req: NextApiRequest) {
     try {
         // TODO: recommendation ALGORITHM
         const paths = await prisma.studyPath.findMany({ take: 20, include: { department: { include: { university: { select: { name: true, id: true}}} }}} )
-        console.log(paths)
         //@ts-ignore
         res.data = paths
 

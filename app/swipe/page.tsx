@@ -54,12 +54,12 @@ const SwipePage = () => {
 
         { isDragged && !error ? <>
           {/* @ts-ignore */}
-          <div className={`fixed w-[50%] h-screen bg-red-200 ${dragPoint > x ? "" : "opacity-30"} left-0 border flex justify-center items-center font-bold text-[50px] transition-opacity`}>
+          <div className={`fixed w-[50%] h-screen bg-red-200 ${dragPoint > x ? "opacity-80" : "opacity-30"} left-0 border flex justify-center items-center font-bold text-[50px] z-20 transition-opacity`}>
           {/* @ts-ignore */}
             {dragPoint > x ? <p className='opacity-100'>I don't like it 👎</p> : null}
           </div>
           {/* @ts-ignore */}
-          <div className={`fixed w-[50%] h-screen bg-green-200 ${dragPoint < x ? "" : "opacity-30"} right-0 flex justify-center items-center font-bold text-[50px] transition-opacity`}>
+          <div className={`fixed w-[50%] h-screen bg-green-200 ${dragPoint < x ? "opacity-80" : "opacity-30"} right-0 flex justify-center items-center font-bold text-[50px] z-20 transition-opacity`}>
           {/* @ts-ignore */}
             {dragPoint < x ? <p className='blur-0'>I like it 👍</p> : null}
           </div>
