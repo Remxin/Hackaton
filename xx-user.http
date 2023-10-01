@@ -6,9 +6,9 @@ POST http://localhost:3000/api/user/register
 Content-Type: application/json
 
 {
-    "name": "Test",
+    "userName": "Tes3t",
     "email": "test3@gmail.com",
-    "password": "zaq1@WSX"
+    "password": "zaq1@WSX",
 }
 
 ### POST
@@ -16,7 +16,7 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "test@gmail.com",
+    "email": "tes4@gmail.com",
     "password": "zaq1@WSX"
 }
 

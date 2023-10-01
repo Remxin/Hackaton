@@ -65,7 +65,7 @@ export default function Login() {
         <CardHeader>Sign Up</CardHeader>
         <CardBody>
           <Input
-            className="mb-2"
+            className="mb-4"
             label="Name"
             placeholder="Enter your name"
             color="primary"
@@ -74,7 +74,7 @@ export default function Login() {
             }
           />
           <Input
-            className="mb-2"
+            className="mb-4"
             type="email"
             label="Email"
             placeholder="Enter your email"
@@ -104,7 +104,7 @@ export default function Login() {
               </button>
             }
             type={isVisible ? "text" : "password"}
-            className="max-w-xs mb-2"
+            className="max-w-xs mb-4"
           />
           <Divider className="mb-2" />
           <Button onClick={registerUser} color="primary">
