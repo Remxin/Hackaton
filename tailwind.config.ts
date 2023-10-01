@@ -20,8 +20,8 @@ const config: Config = {
       },
       keyframes: {
         wave: {
-          "0%, 100%": { opacity: "100", backgroundColor: "#ccc6"},
-          "50%": { opacity: "100", backgroundColor: "#ccc"},
+          "0%, 100%": { opacity: "100", backgroundColor: "#ccc6" },
+          "50%": { opacity: "100", backgroundColor: "#ccc" },
           // "100%": { opacity: "0", backgroundColor: "#ccc"}
         }
       },
@@ -43,7 +43,7 @@ const config: Config = {
             primary: "#afffaf",
             DEFAULT: "#afffaf",
             foreground: "#000",
-            secondary: "67fa67",
+            secondary: "#67fa67",
             background: "#fff",
           },
         },
