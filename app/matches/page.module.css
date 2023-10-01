@@ -47,7 +47,7 @@
 .start_swiping {
     /* border: 1px solid black; */
     border-radius: 10px;
-    background-color: contrast-color;
+    background-color: crimson;
     width: 10rem;
     height: 4rem;
     animation: pulse 1500ms infinite;
@@ -59,6 +59,6 @@
 }
 
 .start_swiping:hover {
-    background-color: white;
-    color: contrast-color;
+    background-color: orange;
+    color: white;
 }
