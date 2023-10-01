@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: center;
     overflow: hidden;
-    /* padding-top: 5rem; */
+    padding-top: 5rem;
 }
 
 .matches_view {
@@ -21,7 +21,7 @@
     justify-content: space-evenly;
     flex-direction: column;
     /* overflow-y: hidden; */
-    width: 40vw;
+    width: 45vw;
 }
 
 .header {
