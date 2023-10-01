@@ -2,26 +2,10 @@
 @value background-gradient, main-fontface, foreground-color, contrast-color, secondary-color from vars;
 
 .wrapper {
-    /* background: background-gradient; */
     color: black;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    /* background-color: white; */
-    /* background: linear-gradient(foreground-color, secondary-color); */
-}
-
-.header {
-    padding: 1rem;
-    display: flex;
-    background-color: white;
-    font-size: 2rem;
-    height: 5rem;
-    font-family: main-fontface;
-    box-shadow: 0 0 1rem black;
-}
-
-.main {
     font-family: Georgia;
     text-align: center;
     font-size: 5rem;

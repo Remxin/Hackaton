@@ -1,0 +1,15 @@
+.user_info_container {
+    background-color: white;
+    border-radius: 10px;
+    height: 60vh;
+    width: 100%;
+}
+
+.user_info_whole_view {
+    width: 55vw;
+    height: 70vw;
+}
+
+.header {
+    font-size: 1.5rem;
+}
