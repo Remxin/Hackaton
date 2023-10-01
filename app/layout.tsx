@@ -24,14 +24,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="w-screen h-screen">
-            <header className='p-4 bg-white opacity-100 text-3xl h-20 sticky top-0'>
+          <div>
+            <header className='p-4 bg-white opacity-100 text-3xl h-20 fixed top-0 w-full z-[1000]'>
+
               <Link href={'/'} className="flex flex-row items-center w-fit">
                 <Image src={'/assets/logo4.png'} alt='logo' width={60} height={80}></Image>
                 <h1>Studier</h1>
               </Link>
             </header>
-            <main className="w-screen h-full">{children}</main>
+            <main className="w-screen h-screen">{children}</main>
           </div>
         </Providers>
       </body>
