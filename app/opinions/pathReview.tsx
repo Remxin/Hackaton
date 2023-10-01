@@ -4,7 +4,10 @@ import ReactStars from "react-rating-stars-component";
 import useFetch from "@/app/hooks/useFetch";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
-export const PathReview = ({ pickedUniversity }) => {
+type componentProps = {
+  pickedUniversity: number | boolean
+}
+export const PathReview = ({ pickedUniversity }: componentProps) => {
   const { data, isLoading, isError } = useFetch("/api/study-paths-for-all");
   const [specificUniData, setSpecificUniData] = useState<any[]>([]);
   useEffect(() => {

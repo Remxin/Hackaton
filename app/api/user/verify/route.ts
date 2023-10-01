@@ -21,7 +21,7 @@ type loginBody = {
   password: string;
 };
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: any) {
   let res: httpresponseType<userClientType & { token: string }> = {
     status: "ok",
     data: { id: "", name: "", email: "", token: "" },

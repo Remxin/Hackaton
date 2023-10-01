@@ -37,6 +37,7 @@ export async function POST(req: Request) {
       throw new Error("Password hashing do not work");
 
     const user = await prisma.user.create({
+      //@ts-ignore
       data: { email, password: hashedPass.data, name: userName },
     });
     if (!user) {
