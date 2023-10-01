@@ -1,21 +1,21 @@
 @value vars: '../vars.css';
-@value background-gradient, main-fontface, foreground-color, contrast-color, secondary-color, primary-color from vars;
+@value foreground-color from vars;
 
 .match {
     display: flex;
     flex-direction: row;
     width: 90%;
     margin: 1rem;
-    background-color: foreground-color;
+    background-color: white;
     border-radius: 10px;
 }
 
-.match:nth-child(even) {
+.match:nth-child(2n) {
     flex-direction: row-reverse;
 }
 
 .container {
-    width: 50%;
+    width: 45%;
     height: 15rem;
     display: flex;
     justify-content: center;
@@ -24,6 +24,7 @@
     overflow: hidden;
     margin: 0.5rem;
     border-radius: 10px;
+    position: relative;
 }
 
 .header {

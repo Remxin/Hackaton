@@ -17,6 +17,7 @@ export async function GET() {
         },
       },
     });
+    //@ts-ignore
     res.data = studyPaths;
     return NextResponse.json(res, { status: 200 });
   } catch (err) {

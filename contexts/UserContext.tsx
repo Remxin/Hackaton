@@ -9,9 +9,10 @@ import { httpresponseType } from "@/types/api";
 
 // cookies
 import { useCookies } from "react-cookie";
+import { calculateSeconds } from "@/helpers/data/dates";
 
-// router
 import { usePathname } from "next/navigation";
+
 
 // types
 type ContextType = {
@@ -33,9 +34,8 @@ export const UserContext = createContext<ContextType>(null);
 
 // context Provider
 export default function UserContextProvider({ children }: ProviderProps) {
-  const [cookies, setCookie] = useCookies();
   const pathname = usePathname()
-
+  const [cookies, setCookie] = useCookies();
   const [userData, setUserData] = useState<userClientType>({
     id: "",
     name: "",
@@ -46,7 +46,7 @@ export default function UserContextProvider({ children }: ProviderProps) {
   const [errors, setErrors] = useState<string[]>([]);
 
   async function login(email: string, password: string) {
-    setLoading(true)
+  
     // return
     let token = "";
     try {
@@ -66,10 +66,9 @@ export default function UserContextProvider({ children }: ProviderProps) {
       token = resData.data.token;
       setUserData({ name, email, id });
       setCookie("user_token", token);
-      setLoading(false)
+      setCookie("user_email", email);
     } catch (err) {
       setErrors((e) => [...e, "Application error"]);
-      setLoading(false)
       return;
     }
   }

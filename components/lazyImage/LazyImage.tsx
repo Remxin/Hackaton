@@ -9,12 +9,12 @@ type componentProps = {
     height: number
 }
 
-function LazyImage({ uuid, width, height, divClass="" }: componentProps) {
+function LazyImage({ uuid, width, height, divClass = "" }: componentProps) {
 
 
 
     return (
-   
+
         <div className={`blur-load ${divClass}`} style={{ backgroundImage: `/assets/smalluniversities/${uuid}.png` }}>
             <Image
                 src={`/assets/universities/${uuid}.png`}
@@ -26,7 +26,7 @@ function LazyImage({ uuid, width, height, divClass="" }: componentProps) {
                 height={height}
             />
         </div>
-     
+
     )
 }
 
