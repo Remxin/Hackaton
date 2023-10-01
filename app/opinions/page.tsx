@@ -84,29 +84,10 @@ const Page = () => {
       {pickedUniversity && (
         <div>
           <div>
-            {/* {data.data.map((university: any) => {
-              return (
-                <div key={university.id}>
-                  {university.name}
-                  <ReactStars
-                    count={5}
-                    onChange={ratingChanged}
-                    size={24}
-                    activeColor="#ffd700"
-                  />
-                </div>
-              );
-            })} */}
             <PathReview pickedUniversity={pickedUniversity} />
           </div>
         </div>
       )}
-      <ReactStars
-        count={5}
-        onChange={ratingChanged}
-        size={24}
-        activeColor="#ffd700"
-      />
     </div>
   );
 };
