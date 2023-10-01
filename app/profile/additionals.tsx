@@ -41,10 +41,18 @@ export default function Additionals({data, setData}:{data:{ [key: string]: addit
                         <td><span>dodaj egzamin zawodowy: </span></td>
                         <td><select onChange={handleChange} className={styles.select} name="kwalifikacja" id="">{selectData.kwalifikacje.map((x, i)=><option key={i}>{x}</option>)}</select></td>
                     </tr>
+                    {data.kwalifikacja.map((x,i)=><tr key={`kwalifikacja${i}`}>
+                        <td>&emsp; {x.name}:</td>
+                        <td><input type="number" name={JSON.stringify({name: x.name, category: "kwalifikacja"})} onChange={changeAdditionalNumber} value={x.value} className={styles.numberLongerInput}/>%</td>
+                    </tr>)}
                     <tr>
                         <td><span>dodaj olimpiadę: </span></td>
                         <td><select onChange={handleChange} className={styles.select} name="olimpiada" id="">{selectData.olimpiady.map(x=><option key={x}>{x}</option>)}</select></td>
                     </tr>
+                    {data.olimpiada.map((x,i)=><tr key={`olimpiada${i}`}>
+                        <td>&emsp; {x.name}:</td>
+                        <td><input type="number" name={JSON.stringify({name: x.name, category: "olimpiada"})} onChange={changeAdditionalNumber} value={x.value} className={styles.numberLongerInput}/>%</td>
+                    </tr>)}
                 </tbody>
             </table>
         </div>
