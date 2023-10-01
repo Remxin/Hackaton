@@ -11,7 +11,7 @@ import { httpresponseType } from "@/types/api"
 export const useStudyPath = () => {
     const [data, setData] = useState<studyPathDBType[]>([])
     const [error, setError] = useState("")
-    const [loading, setLoading] = useState(true) // TODO: change to false
+    const [loading, setLoading] = useState(false) // TODO: change to false
 
     async function getStudyPaths() {
         setLoading(true)

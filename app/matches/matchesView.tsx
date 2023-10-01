@@ -1,7 +1,11 @@
+"use client"
+import { useRouter } from 'next/navigation'
 import styles from './page.module.css'
 import Tile from './tile'
 
 export default function MatchesView() {
+
+    const router = useRouter()
 
     const matches: string[] = [
         '74d5bc18-a824-4337-a6b3-a979f8adfa3d',
@@ -15,6 +19,7 @@ export default function MatchesView() {
             {matches.map((element, index) => {
                 return <Tile id={element} key={index} />
             })}
+            <button className={styles.start_swiping} onClick={() => router.push('./swipe')}>Start Swiping</button>
         </div>
     </div>
 

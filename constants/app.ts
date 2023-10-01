@@ -1,3 +1,3 @@
 export const appConstants = {
-    appIP: "http://localhost:3000"
+    appIP: "https://caac-4-tels-projects.vercel.app"
 } as const

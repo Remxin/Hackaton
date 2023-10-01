@@ -4,15 +4,19 @@ import React, { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import useFetch from "@/app/hooks/useFetch";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { PathReview } from "@/app/opinions/pathReview";
 
 const Page = () => {
   ///api/user/register
-  const [pickedUniversity, setPickedUniversity] = useState<number>(null);
+  const [pickedUniversity, setPickedUniversity] = useState<number | boolean>(
+    false
+  );
 
   const ratingChanged = (newRating: any) => {
     console.log(newRating);
   };
   const { data, isLoading, isError } = useFetch("/api/study-paths-for-all");
+  const [pathData, setPathData] = useState<any[]>([]);
   const uniData = useFetch("/api/university");
   console.log(data);
   console.log(uniData.data);
@@ -46,7 +50,7 @@ const Page = () => {
           })} */}
         </div>
       )}
-      {uniData.data && (
+      {uniData.data && !pickedUniversity && (
         <div className="flex content-center flex-col">
           {uniData.data.data.map((university: any, idx: number) => {
             return (
@@ -77,13 +81,13 @@ const Page = () => {
           })}
         </div>
       )}
-
-      <ReactStars
-        count={5}
-        onChange={ratingChanged}
-        size={24}
-        activeColor="#ffd700"
-      />
+      {pickedUniversity && (
+        <div>
+          <div>
+            <PathReview pickedUniversity={pickedUniversity} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

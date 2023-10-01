@@ -7,8 +7,6 @@ import prisma from "@/lib/prisma";
 // hash
 import { hashHelpers } from "@/helpers/data/hashHelpers";
 
-
-
 // types
 import { httpresponseType } from "@/types/api";
 import { userClientType, userDBType } from "@/types/dbModels";
@@ -39,6 +37,7 @@ export async function POST(req: Request) {
       throw new Error("Password hashing do not work");
 
     const user = await prisma.user.create({
+      //@ts-ignore
       data: { email, password: hashedPass.data, name: userName },
     });
     if (!user) {

@@ -1,9 +1,13 @@
+@value vars: '../vars.css';
+@value contrast-color, secondary-color, primary-color from vars;
+
 .wrapper {
     /* height: 100vh; */
     width: 100vw;
     margin: 0;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     overflow: hidden;
     padding-top: 5rem;
 }
@@ -16,8 +20,8 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    overflow-y: hidden;
-    width: 40vw;
+    /* overflow-y: hidden; */
+    width: 45vw;
 }
 
 .header {
@@ -38,4 +42,23 @@
     border-radius: 10px;
     box-shadow: inset 0 0 0.5rem #bfbfbf;
     overflow: scroll;
+}
+
+.start_swiping {
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background-color: crimson;
+    width: 10rem;
+    height: 4rem;
+    animation: pulse 1500ms infinite;
+    position: fixed;
+    color: white;
+    bottom: 5rem;
+    transition: all 300ms;
+    font-weight: bold;
+}
+
+.start_swiping:hover {
+    background-color: orange;
+    color: white;
 }

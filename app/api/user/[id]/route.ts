@@ -12,6 +12,7 @@ export async function GET(req: Request) {
 
     try {
         const user = await prisma.user.findUnique({where:{id: userId}, include: {maturaScore: true}})
+        //@ts-ignore
         res.data = user
         return NextResponse.json(res, { status: 200 })
     } catch (err) {
@@ -34,6 +35,7 @@ export async function PATCH(req: Request) {
             const exam = await prisma.maturaScore.create({data: {subjectName: x.name,percent:+x.percent,userId }})
 
         }
+        //@ts-ignore
         res.data = user
         return NextResponse.json(res, { status: 200 })
     } catch (err) {

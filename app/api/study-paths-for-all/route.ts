@@ -10,7 +10,14 @@ export async function GET() {
   let res: httpresponseType<studyPathDBType[]> = { status: "ok", data: [] };
 
   try {
-    const studyPaths = await prisma.studyPath.findMany();
+    const studyPaths = await prisma.studyPath.findMany({
+      include: {
+        department: {
+          include: { university: { select: { name: true, id: true } } },
+        },
+      },
+    });
+    //@ts-ignore
     res.data = studyPaths;
     return NextResponse.json(res, { status: 200 });
   } catch (err) {
