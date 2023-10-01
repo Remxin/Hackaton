@@ -11,14 +11,22 @@ import StudyPathCard from './StudyPathCard'
 // hook
 import { useStudyPath } from '@/hooks/useStudyPath'
 
+
+// preferences
+import UserPreferences from '@/utilities/userPreferences'
+const userPreferences = new UserPreferences()
+
 const SwipePage = () => {
   const { data, loading, error, dispatch } = useStudyPath()
   const [isDragged, setIsDragged] = useState(false)
   const [dragPoint, setDragPoint] = useState<null | number>(null)
   const { x } = useMousePosition()
+  
 
   function acceptStudyPath(mouseXPos: number | null, dragAnchor: number | null) {
     if (!mouseXPos || !dragAnchor) return
+
+    // getting next study path
     dispatch.getNext()
     setIsDragged(false)
     setDragPoint(null)
