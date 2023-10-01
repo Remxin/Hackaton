@@ -1,0 +1,42 @@
+@value vars: '../vars.css';
+@value background-gradient, main-fontface, foreground-color, contrast-color, secondary-color from vars;
+
+.wrapper {
+    color: black;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: Georgia;
+    text-align: center;
+    font-size: 5rem;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.background {
+    background-image: url('/assets/background/library.jpg');
+    background-size: cover;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    /* z-index: 2; */
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+}
+
+.hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}

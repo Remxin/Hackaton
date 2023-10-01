@@ -1,0 +1,22 @@
+@value vars: '../vars.css';
+@value background-gradient, main-fontface, contrast-color, secondary-color from vars;
+
+.button {
+    width: 10rem;
+    height: 4rem;
+    background-color: contrast-color;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 2rem;
+    color: white
+}
+
+.button:hover {
+    cursor: pointer;
+    background-image: url('/assets/FIRE/fire-flames.gif');
+    color: white;
+    /* background-size: contain */
+}

@@ -1,0 +1,16 @@
+.user_info_wrapper {
+    border-radius: 10px;
+    height: 10rem;
+    width: 10rem;
+    background-color: aqua;
+}
+
+.user_info_whole_view {
+    width: 55vw;
+    height: 70vw;
+}
+
+.header {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
