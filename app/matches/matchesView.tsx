@@ -15,6 +15,7 @@ export default function MatchesView() {
             {matches.map((element, index) => {
                 return <Tile id={element} key={index} />
             })}
+            {/* <button className={styles.start_swiping}>Start Swiping</button> */}
         </div>
     </div>
 

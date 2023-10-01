@@ -3,7 +3,7 @@
 
 .match {
     display: flex;
-    /* width: 35rem; */
+    flex-direction: row;
     width: 90%;
     margin: 1rem;
     background-color: foreground-color;
